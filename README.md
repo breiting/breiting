@@ -1,5 +1,7 @@
 #  My dotfiles and system configuration
 
+![](https://raw.githubusercontent.com/wiki/breiting/breiting/osx.png)
+
 This repository contains all my setup scripts and dotfiles. It may not be 100% adjusted for your needs, but you can use it as a guideance for your environment. Most credits go to Greg Hurrell (see below).
 
 ## Pre-requisite (tasks which have been done manually)
