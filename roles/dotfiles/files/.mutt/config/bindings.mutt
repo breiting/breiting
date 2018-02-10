@@ -1,0 +1,15 @@
+# -*- muttrc -*-
+#
+
+bind index x sync-mailbox # delete messages and sync folders
+bind index g  noop # required for NeoMutt
+bind index gg first-entry
+bind index,pager B sidebar-toggle-visible
+bind index,pager a group-reply # reply all
+bind index <down> sidebar-next
+bind index <right> sidebar-open
+bind index <up> sidebar-prev
+
+bind pager j next-line
+bind pager k previous-line
+

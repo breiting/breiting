@@ -1,0 +1,6 @@
+/certificates
+/cache
+*.pyc
+/tmp
+*.log
+signatures

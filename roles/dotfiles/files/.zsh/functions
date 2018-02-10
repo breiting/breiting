@@ -1,0 +1,50 @@
+function g {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status
+  fi
+}
+
+# Send a tmux command to the right pane
+function ts {
+    args="$@"
+    tmux send-keys -t right "$args" C-m
+}
+
+# Send a note to myself
+function nts {
+    args="$@"
+    mutt -s "$args" br@reecon.at < /dev/null
+}
+
+# Modify a taskwarrior task
+function tm {
+  if [[ $# < 1 ]]; then
+    task list
+  else
+    taskid="$1"
+    shift
+    task "$taskid" modify "$*"
+  fi
+}
+
+# Allows commit message without typing quotes (can't have quotes in the commit msg though).
+function gc {
+  git commit -am "$*"
+}
+
+function formatcode {
+    find . -name "*.c" | xargs astyle
+    find . -name "*.cpp" | xargs astyle
+    find . -name "*.hpp" | xargs astyle
+    find . -name "*.orig" | xargs rm
+}
+function formatjava {
+    find . -name "*.java" | xargs astyle --options=$HOME/.astylerc-java
+    find . -name "*.orig" | xargs rm
+}
+function formatgroovy {
+    find . -name "*.groovy" | xargs astyle --options=$HOME/.astylerc-java
+    find . -name "*.orig" | xargs rm
+}

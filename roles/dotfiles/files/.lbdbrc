@@ -1,0 +1,8 @@
+# See /usr/local/etc/lbdb.rc for base configuration.
+
+METHODS="m_inmail m_muttalias m_osx_addressbook"
+MUTT_DIRECTORY="$HOME/.mutt/config"
+MUTTALIAS_FILES="aliases.mutt"
+MODULES_PATH="/usr/local/Cellar/lbdb/0.46/libexec"
+SORT_OUTPUT=name
+

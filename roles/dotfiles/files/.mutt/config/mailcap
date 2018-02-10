@@ -1,0 +1,22 @@
+# Images
+image/jpg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/jpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/pjpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/png; ~/.mutt/scripts/view_attachment.sh %s png
+image/gif; ~/.mutt/scripts/view_attachment.sh %s gif
+
+# PDFs
+application/pdf; ~/.mutt/scripts/view_attachment.sh %s pdf
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.mutt/scripts/view_attachment.sh %s doc
+
+# Calendar invites.
+text/calendar; ~/.mutt/scripts/view_attachment.sh %s ics open
+
+# HTML
+text/html; CHARSET=%{charset} ~/.mutt/scripts/view_attachment.sh %s html
+text/html; elinks -dump %s -dump-charset %{charset} -force-html; nametemplate=%s.html; copiousoutput
+
+text/plain; ~/.mutt/scripts/view_mail.sh %s %{charset}; needsterminal
+
+# Unidentified files
+application/octet-stream; ~/.mutt/scripts/view_attachment.sh %s "-"

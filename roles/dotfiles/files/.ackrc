@@ -1,0 +1,23 @@
+--ignore-dir=.git
+--ignore-dir=build
+--ignore-dir=coverage
+--ignore-dir=doc
+--ignore-dir=log
+--ignore-dir=obj
+--ignore-dir=tmp
+--ignore-file=match:/.*tags$/
+--pager=less -iFMRSX
+--sort-files
+--type-add=css=.css
+--type-add=css=.scss
+--type-add=ruby=.builder
+--type-add=ruby=.feature
+--type-add=ruby=.rake
+--type-set=haml=.haml
+--type-set=puppet=.pp
+--type-set=ragel=.rl
+--type-set=sass=.sass
+--type-set=txt=.txt
+--type-set=walrus=.tmpl
+--type-set=wikitext=.wikitext
+--type-set=xcconfig=.xcconfig
