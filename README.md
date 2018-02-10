@@ -49,9 +49,9 @@ git clone https://github.com/breiting/breiting.git
 
 ```sh
 ./macos.sh
-./vim.sh           # Please see the notes in this script for installing all VIM plugins
-./install          # Installs everything on the local machine.
-./install dotfiles # Just install dotfiles.
+./vim.sh              # Please see the notes in this script for installing all VIM plugins
+./install.sh          # Installs everything on the local machine.
+./install.sh dotfiles # Just install dotfiles.
 ```
 
 ### Troubleshooting
