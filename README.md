@@ -2,7 +2,8 @@
 
 ![](https://raw.githubusercontent.com/wiki/breiting/breiting/osx.png)
 
-This repository contains all my setup scripts and dotfiles. It may not be 100% adjusted for your needs, but you can use it as a guideance for your environment. Most credits go to Greg Hurrell (see below).
+This repository contains all my setup scripts and dotfiles. It may not be 100% adjusted for your needs, but you can use
+it as a guideance for your environment. Most credits go to Greg Hurrell (see below).
 
 ## Pre-requisite (tasks which have been done manually)
 
@@ -13,10 +14,12 @@ This repository contains all my setup scripts and dotfiles. It may not be 100% a
 
 * Make sure that you have installed Xcode (from App Store)
 * After brewing, update your default shell by
-	$ sudo
-	# echo /usr/local/bin/zsh >> /etc/shell
-	$ // as normal user
-	$ chsh -s /usr/local/bin/zsh
+```
+$ sudo
+# echo /usr/local/bin/zsh >> /etc/shell
+$ // as normal user
+$ chsh -s /usr/local/bin/zsh
+```
 
 ## Features
 
@@ -27,7 +30,8 @@ base system.
 
 ### Homebrew
 
-On macOS, [the `homebrew` role](https://github.com/breiting/breiting/tree/master/roles/homebrew) installs [a bunch of useful software](https://github.com/breiting/breiting/blob/master/roles/homebrew/files/Brewfile).
+On macOS, [the `homebrew` role](https://github.com/breiting/breiting/tree/master/roles/homebrew) installs [a bunch of
+useful software](https://github.com/breiting/breiting/blob/master/roles/homebrew/templates/Brewfile).
 
 ### Mac Defaults
 
@@ -56,7 +60,7 @@ git clone https://github.com/breiting/breiting.git
 
 Unless otherwise noted, the contents of this repo are in the public domain. See the [LICENSE](LICENSE.md) for details.
 
-### Authors
+### Author(s)
 
-The repo is written and maintained by Bernhard Reitinger (mailto:br@reecon.at). This work got heavily inspired by Greg Hurrell. Have a look at his repository (https://github.com/wincent/wincent).
-
+The repo is written and maintained by Bernhard Reitinger &lt;[br@reecon.at](mailto:br@reecon.at)&gt;. This work got
+heavily inspired by Greg Hurrell. Have a look at his repository (https://github.com/wincent/wincent).
