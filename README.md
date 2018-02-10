@@ -37,6 +37,11 @@ useful software](https://github.com/breiting/breiting/blob/master/roles/homebrew
 
 Install all Mac defaults by calling `macos.sh`
 
+### iTerm2
+
+I added some schemes under `misc`. Currently my favorite is `Tomorrow Night` with Font `Source Code Pro for Powerline`
+font size 14px.
+
 ## Installation
 
 ### Clone
