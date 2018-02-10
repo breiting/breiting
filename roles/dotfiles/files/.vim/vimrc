@@ -1,0 +1,259 @@
+" ========================================================================
+" Bernhard's vimrc file 2018
+" ========================================================================
+
+set nocompatible " Required by vundle
+filetype off     " Required by vundle
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" ==== PLUGINS ====
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'alpertuna/vim-header'
+Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'ervandew/supertab'
+Plugin 'godlygeek/tabular'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-scripts/tComment'
+Plugin 'vimwiki/vimwiki'
+Plugin 'w0rp/ale'  " Linter for Javascript
+
+" ==== PLUGIN THEMES ====
+Plugin 'vim-scripts/darktango.vim'
+Plugin 'jonathanfilip/vim-lucius'
+Plugin 'morhetz/gruvbox'
+Plugin 'bling/vim-airline'
+" ==== END PLUGIN THEMES ====
+
+" ==== PLUGIN SYNTAXES ====
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'aklt/plantuml-syntax'
+Plugin 'plasticboy/vim-markdown'
+" === END PLUGIN SYNTAXES ====
+
+" ==== END PLUGINS ====
+
+" Plugin 'SirVer/ultisnips'
+" Plugin 'qpkorr/vim-bufkill'
+
+call vundle#end()
+filetype plugin indent on
+
+" ==== BASIC ====
+colorscheme gruvbox
+set guifont=Monospace\ 10
+syntax enable
+
+let &colorcolumn="120"
+set autoindent
+set autoread                  " Auto read file if it changed
+set background=dark
+set cindent
+set clipboard=unnamed         " set clipboard to OSX default
+set colorcolumn=+1
+set encoding=utf-8
+set expandtab
+set fileformat=unix           " Default mode is unix
+set fileformats=unix,dos,mac  " Detect this order
+set foldlevel=99
+set hidden
+set history=9999
+set hlsearch
+set ignorecase smartcase
+set incsearch
+set laststatus=2
+set mouse=a
+set nobackup                  " Do not generate ~ files
+set noerrorbells visualbell t_vb=   " turns off all error bells, visual or otherwise
+set nofoldenable
+set nowrap
+set nu                        " Set line numbers on
+set number
+set ruler
+set shiftwidth=4
+set showmatch
+set smartindent
+set softtabstop=4
+set st=4 sw=4 et
+set tabstop=4                 " default tab size
+set textwidth=120             " add visualization for max text width
+set list listchars=tab:▸\ ,trail:.
+set list
+
+augroup vimrc
+  " Automatically delete trailing DOS-returns and whitespace on file open and write.
+  autocmd BufRead,BufWritePre,FileWritePre * silent! %s/[\r \t]\+$//
+augroup END
+
+" Javacomplete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" Autoformat style
+let g:formatdef_my_custom_cpp = '"astyle"'
+let g:formatdef_my_custom_java = '"astyle --options=$HOME/.astylerc-java"'
+let g:formatdef_my_custom_javascript = '"standard --fix"'
+let g:formatters_cpp = ['my_custom_cpp']"
+let g:formatters_java = ['my_custom_java']"
+let g:formatters_javascript = ['my_custom_javascript']"
+
+" Set some ignore patterns of directoies and files
+set wildignore+=*/build/*,*.so,*.swp,*.zip
+set wildignore+=.git,.gitkeep
+set wildignore+=*DS_Store*
+set wildignore+=*.jpg,*.git,*.gif
+set wildignore+=*.class
+
+" ==== NERDTREE ====
+let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '\.swo', '\.swn', '\.swm', '[a-zA-Z]*egg[a-zA-Z]*', '[a-zA-Z]*cache[a-zA-Z]*']
+let NERDTreeShowHidden=1
+let g:NERDTreeWinPos="left"
+let g:NERDTreeDirArrows=0
+let g:NERDTreeWinSize = 40
+map <Leader>ff :NERDTreeFind<cr>
+
+" === NETRW file explorer ===
+map  <F3>  :Explore<CR>
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_list_hide= '.*\.swp$'
+
+nmap <F2>  :YcmCompleter GoToDefinition<CR><CR>
+nmap <F12> :wa<CR>
+nmap <S-F12> :wq<CR>
+
+" set leader to space
+let mapleader=" "
+
+" open the current file in the webbrowser
+map <leader>b :call RunGoogleChrome()<cr>
+
+nnoremap <leader>sp :call FixLastSpellingError()<cr>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l> " hide search selection w/ C-l
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+map <Leader>nn :e ~/.vim/vimrc<cr>
+
+" This shortcut copies the current filename and line number into the buffer for debugging (setting breakpoints)
+nnoremap <leader>y :let @+=expand("%:t") . ':' . line(".")<CR>
+
+" Run npm test on the right tmux pane
+" map <Leader>rt :w<cr>:call RunCurrentTest('!ts spec/dummy/bin/rspec')<CR>
+" map <F10> :wa<cr>:call RunNpmTest()<cr>
+autocmd FileType cpp          map <F10> :wa<cr>:call RunMake()<cr>
+autocmd FileType javascript   map <F10> :wa<cr>:call RunNpmTest()<cr>
+
+function! RunNpmTest()
+    exec ':silent !tmux send-keys -t right "npm test" C-m'
+    :redraw!
+endfunction
+
+function! RunMake()
+    exec ':silent !tmux send-keys -t right "make -j4" C-m'
+    :redraw!
+endfunction
+
+function! RunGoogleChrome()
+    exec ':silent !open -a "Google Chrome" %'
+    :redraw!
+endfunction
+
+let g:ackprg="/usr/local/Cellar/ack/2.14/bin/ack -H --nocolor --nogroup --column"
+
+:set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h15
+
+" Configure Airline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dark'
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Allow project-wise .vimrc files
+set exrc
+set secure
+
+" In case of GIT diff split vertically
+:set diffopt+=vertical
+
+let g:EasyGrepFilesToExclude="tags,.git"
+
+" Ignore some directories for CtrlP
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|^.git$\|_site'
+
+" Enable auto format on save for Javascript
+let g:ale_fixers = {
+\   'javascript': ['standard'],
+\}
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\   'cpp': ['cppcheck']
+\}
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+let g:ale_fix_on_save = 1
+
+let g:ale_pattern_options = {
+\   '.*\.cpp$': {'ale_enabled': 0},
+\   '.*\.hpp$': {'ale_enabled': 0},
+\   '.*\.h$': {'ale_enabled': 0}
+\}
+
+" Change VimWiki setting
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.wiki'}]
+
+function! FixLastSpellingError()
+    normal! mm[s1z=`m
+endfunction
+
+" Make misspelled word underline
+hi SpellBad cterm=underline
+
+" VIM-Header settings
+let g:header_auto_add_header = 0
+let g:header_field_filename = 0
+let g:header_field_author = 'Robotic Eyes GmbH'
+let g:header_field_timestamp = 1
+let g:header_field_modified_timestamp = 0
+let g:header_field_timestamp_format = '%Y'
+let g:header_field_modified_by = 0
+
+" Additional surround settings
+" use b for double star
+autocmd FileType markdown,asciidoc let b:surround_{char2nr('b')} = "**\r**"
+
+" YouCompleteMe section
+"" turn on completion in comments
+let g:ycm_complete_in_comments=1
+"" load ycm conf by default
+let g:ycm_confirm_extra_conf=0
+"" turn on tag completion
+let g:ycm_collect_identifiers_from_tags_files=1
+"" only show completion as a list instead of a sub-window
+set completeopt-=preview
+"" start completion from the second character
+let g:ycm_min_num_of_chars_for_completion=2
+"" don't cache completion items
+let g:ycm_cache_omnifunc=0
+"" complete syntax keywords
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_filetype_blacklist = { 'asciidoc': 1, 'mail': 1, 'vimwiki': 1, 'markdown': 1 }
+highlight YcmErrorLine guibg=#433D3D
+
+" ALE Linter
+let g:ale_lint_on_text_changed = 'never'

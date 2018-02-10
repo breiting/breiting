@@ -1,27 +1,27 @@
 ---
 dotfile_files:
   - .ackrc
+  - .astylerc
+  - .astylerc-java
   - .clipper.json
   - .config/ranger
   - .ghci
+  - .git-completion.zsh
   - .gitconfig
   - .gitignore
   - .gitk
   - .gvimrc
   - .lbdbrc
-  - .msmtprc
   - .mbsyncrc
+  - .msmtprc
   - .mutt
   - .muttrc
   - .notmuch-config
-  - .astylerc
-  - .astylerc-java
-  - .git-completion.zsh
   - .taskrc
   - .tern-config
   - .tmux.conf
   - .urlview
-  # - .vim
+  - .vim
   - .zsh
   - .zshenv
   - .zshrc
