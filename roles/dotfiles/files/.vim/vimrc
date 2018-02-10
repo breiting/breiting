@@ -34,7 +34,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/tComment'
 Plugin 'vimwiki/vimwiki'
-Plugin 'w0rp/ale'  " Linter for Javascript
+Plugin 'w0rp/ale'                                " Linter for Javascript
 
 " ==== PLUGIN THEMES ====
 Plugin 'vim-scripts/darktango.vim'
@@ -57,22 +57,35 @@ Plugin 'plasticboy/vim-markdown'
 call vundle#end()
 filetype plugin indent on
 
-" ==== BASIC ====
 colorscheme gruvbox
-set guifont=Monospace\ 10
 syntax enable
+
+if exists('$SUDO_USER')                          " Keep the backup and swap files out of the way
+    set nobackup
+    set nowritebackup
+    set noswapfile
+else
+    set backupdir=~/.vim.backup
+    set backupdir+=~/.vim/tmp/backup
+    set backupdir+=.
+    set directory=~/.vim.swap
+    set directory+=~/.vim/tmp/swap
+    set directory+=.
+endif
 
 let &colorcolumn="120"
 set autoindent
-set autoread                  " Auto read file if it changed
+set backspace=indent,start,eol                   " Allow unrestricted access of backspace in insert mode
+set autoread                                     " Auto read file if it changed
 set background=dark
+set colorline                                    " Mark the current line
 set cindent
-set clipboard=unnamed         " set clipboard to OSX default
+set clipboard=unnamed                            " set clipboard to OSX default
 set colorcolumn=+1
 set encoding=utf-8
 set expandtab
-set fileformat=unix           " Default mode is unix
-set fileformats=unix,dos,mac  " Detect this order
+set fileformat=unix                              " Default mode is unix
+set fileformats=unix,dos,mac                     " Detect this order
 set foldlevel=99
 set hidden
 set history=9999
@@ -81,11 +94,11 @@ set ignorecase smartcase
 set incsearch
 set laststatus=2
 set mouse=a
-set nobackup                  " Do not generate ~ files
-set noerrorbells visualbell t_vb=   " turns off all error bells, visual or otherwise
+set nobackup                                     " Do not generate ~ files
+set noerrorbells visualbell t_vb=                " turns off all error bells, visual or otherwise
 set nofoldenable
 set nowrap
-set nu                        " Set line numbers on
+set nu                                           " Set line numbers on
 set number
 set ruler
 set shiftwidth=4
@@ -93,8 +106,8 @@ set showmatch
 set smartindent
 set softtabstop=4
 set st=4 sw=4 et
-set tabstop=4                 " default tab size
-set textwidth=120             " add visualization for max text width
+set tabstop=4                                    " default tab size
+set textwidth=120                                " add visualization for max text width
 set list listchars=tab:▸\ ,trail:.
 set list
 
@@ -153,9 +166,6 @@ map <Leader>nn :e ~/.vim/vimrc<cr>
 " This shortcut copies the current filename and line number into the buffer for debugging (setting breakpoints)
 nnoremap <leader>y :let @+=expand("%:t") . ':' . line(".")<CR>
 
-" Run npm test on the right tmux pane
-" map <Leader>rt :w<cr>:call RunCurrentTest('!ts spec/dummy/bin/rspec')<CR>
-" map <F10> :wa<cr>:call RunNpmTest()<cr>
 autocmd FileType cpp          map <F10> :wa<cr>:call RunMake()<cr>
 autocmd FileType javascript   map <F10> :wa<cr>:call RunNpmTest()<cr>
 
@@ -174,23 +184,20 @@ function! RunGoogleChrome()
     :redraw!
 endfunction
 
-let g:ackprg="/usr/local/Cellar/ack/2.14/bin/ack -H --nocolor --nogroup --column"
+let g:ackprg="/usr/local/bin/ack -H --nocolor --nogroup --column"
 
 :set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h15
 
-" Configure Airline
-set laststatus=2
+
+set laststatus=2                                 " Configure Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" Allow project-wise .vimrc files
-set exrc
+set exrc                                         " Allow project-wise .vimrc files
 set secure
-
-" In case of GIT diff split vertically
-:set diffopt+=vertical
+:set diffopt+=vertical                           " In case of GIT diff split vertically
 
 let g:EasyGrepFilesToExclude="tags,.git"
 
