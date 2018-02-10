@@ -28,7 +28,7 @@ On macOS, [the `homebrew` role](https://github.com/breiting/breiting/tree/master
 
 ### Mac Defaults
 
-Install all Mac defaults by calling `macos`
+Install all Mac defaults by calling `macos.sh`
 
 ## Installation
 
@@ -41,7 +41,7 @@ git clone https://github.com/breiting/breiting.git
 ### Install
 
 ```sh
-./macos
+./macos.sh
 ./vim.sh
 ./install          # Installs everything on the local machine.
 ./install dotfiles # Just install dotfiles.
