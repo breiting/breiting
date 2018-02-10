@@ -1,0 +1,27 @@
+[user]
+	name = Bernhard Reitinger
+	email = br@reecon.at
+[push]
+    default = simple
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim --noplugin
+    autocrlf = input
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+    last = log -1 HEAD
+[github]
+    user = breiting
+[fetch]
+    prune = true
+[ghi]
+	token = !security find-internet-password -a breiting -s github.com -l 'ghi token' -w
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

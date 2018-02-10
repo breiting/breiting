@@ -1,0 +1,34 @@
+# -*- muttrc -*-
+#
+
+folder-hook +reecon/ "set from      = 'br@reecon.at'"
+folder-hook +reecon/ "set postponed = '+reecon/Drafts'"
+folder-hook +reecon/ "set record    = '+reecon/Gesendete Elemente'"
+folder-hook +reecon/ "set sendmail  = '/usr/local/bin/msmtp -a reecon'"
+folder-hook +reecon/ "set signature = '.mutt/signatures/reecon'"
+folder-hook +reecon/ "set spoolfile = '+reecon/INBOX'"
+folder-hook +reecon/ "macro index,pager A ':set confirmappend=no delete=yes\n<save-message>+reecon/Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n' 'Archive message'"
+
+folder-hook +robotic/ "set from      = 'bernhard.reitinger@robotic-eyes.com'"
+folder-hook +robotic/ "set postponed = '+robotic/Drafts'"
+folder-hook +robotic/ "set record    = '+robotic/Sent Items'"
+folder-hook +robotic/ "set sendmail  = '/usr/local/bin/msmtp -a robotic'"
+folder-hook +robotic/ "set signature = '.mutt/signatures/robotic'"
+folder-hook +robotic/ "set spoolfile = '+robotic/INBOX'"
+folder-hook +robotic/ "macro index,pager A ':set confirmappend=no delete=yes\n<save-message>+robotic/Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n' 'Archive message'"
+
+folder-hook +info/ "set from      = 'bernhard.reitinger@robotic-eyes.com'"
+folder-hook +info/ "set postponed = '+info/Drafts'"
+folder-hook +info/ "set record    = '+info/Sent'"
+folder-hook +info/ "set sendmail  = '/usr/local/bin/msmtp -a robotic'"
+folder-hook +info/ "set signature = '.mutt/signatures/robotic'"
+folder-hook +info/ "set spoolfile = '+info/INBOX'"
+
+folder-hook +live/ "set from      = 'bernhard.reitinger@live.com'"
+folder-hook +live/ "set postponed = '+live/Drafts'"
+folder-hook +live/ "set record    = '+live/Sent'"
+folder-hook +live/ "set sendmail  = '/usr/local/bin/msmtp -a live'"
+folder-hook +live/ "set spoolfile = '+live/INBOX'"
+
+# Set default INBOX
+set spoolfile = '+robotic/inbox'

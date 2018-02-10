@@ -1,0 +1,130 @@
+# #########################################
+# Live mail
+# #########################################
+
+IMAPAccount live
+Host imap-mail.outlook.com
+User bernhard.reitinger@live.com
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-live-password -w"
+CertificateFile /usr/local/etc/openssl/cert.pem
+
+IMAPStore live-remote
+Account live
+
+MaildirStore live-local
+Path ~/Maildir/live/
+Inbox ~/Maildir/live/inbox
+Trash trash
+
+Channel live-folders
+Master :live-remote:
+Slave :live-local:
+Patterns "INBOX" "!Drafts" "!Arch*" "Sent*" "Trash" "Junk" "Deleted*"
+Create Both
+Expunge Both
+SyncState *
+
+Group live
+Channel live-folders
+
+# #########################################
+# Robotic eyes
+# #########################################
+
+IMAPAccount robotic
+Host outlook.office365.com
+User bernhard.reitinger@robotic-eyes.com
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-robotic-password -w"
+CertificateFile /usr/local/etc/openssl/cert.pem
+
+IMAPStore robotic-remote
+Account robotic
+
+MaildirStore robotic-local
+Path ~/Maildir/robotic/
+Inbox ~/Maildir/robotic/inbox
+Trash trash
+
+Channel robotic-folders
+Master :robotic-remote:
+Slave :robotic-local:
+Patterns "INBOX"
+Patterns "Archive" "Sent*" "Junk*" "Deleted*"
+Patterns "!Archive1"
+Create Both
+Expunge Both
+SyncState *
+
+Group robotic
+Channel robotic-folders
+
+# #########################################
+# Robotic eyes Info
+# #########################################
+
+IMAPAccount info
+Host outlook.office365.com
+User bernhard.reitinger@robotic-eyes.com/info@robotic-eyes.com
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-robotic-password -w"
+CertificateFile /usr/local/etc/openssl/cert.pem
+
+IMAPStore info-remote
+Account info
+
+MaildirStore info-local
+Path ~/Maildir/info/
+Inbox ~/Maildir/info/inbox
+Trash trash
+
+Channel info-folders
+Master :info-remote:
+Slave :info-local:
+Patterns "INBOX"
+Create Both
+Expunge Both
+SyncState *
+
+Group info
+Channel info-folders
+
+# #########################################
+# Reecon
+# #########################################
+
+IMAPAccount reecon
+Host outlook.office365.com
+User br@reecon.at
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-reecon-password -w"
+CertificateFile /usr/local/etc/openssl/cert.pem
+
+IMAPStore reecon-remote
+Account reecon
+
+MaildirStore reecon-local
+Path ~/Maildir/reecon/
+Inbox ~/Maildir/reecon/inbox
+Trash trash
+
+Channel reecon-folders
+Master :reecon-remote:
+Slave :reecon-local:
+Patterns "INBOX"
+Patterns "Archive" "Gesendete*" "Junk*" "Deleted*"
+Create Both
+Expunge Both
+SyncState *
+
+Group reecon
+Channel reecon-folders

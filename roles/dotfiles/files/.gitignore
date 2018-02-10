@@ -1,0 +1,11 @@
+*.bak
+*.temp
+*~
+.DS_Store
+.bundle
+.netrwhist
+\#*\#
+log/
+project-notes.txt
+tags
+.vim/bundle
