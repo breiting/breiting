@@ -1,9 +1,10 @@
-# "dotfiles" and system configuration
+#  My dotfiles and system configuration
+
+This repository contains all my setup scripts and dotfiles. It may not be 100% adjusted for your needs, but you can use it as a guideance for your environment. Most credits go to Greg Hurrell (see below).
 
 ## Pre-requisite (tasks which have been done manually)
 
 * Install Ansible with `easy_install install pip`
-* Download nice terminal font (Source Code Pro) from [here](https://github.com/adobe-fonts/source-code-pro)
 * Restore your data from your backup source (e.g. TimeMachine)
 
 ### MacOS only
@@ -42,7 +43,7 @@ git clone https://github.com/breiting/breiting.git
 
 ```sh
 ./macos.sh
-./vim.sh
+./vim.sh           # Please see the notes in this script for installing all VIM plugins
 ./install          # Installs everything on the local machine.
 ./install dotfiles # Just install dotfiles.
 ```
@@ -55,6 +56,5 @@ Unless otherwise noted, the contents of this repo are in the public domain. See 
 
 ### Authors
 
-The repo is written and maintained by Bernhard Reitinger (mailto:br@reecon.at). This work got heavily inspired by Greg Hurrell. Have
-a look at his repository (https://github.com/wincent/wincent).
+The repo is written and maintained by Bernhard Reitinger (mailto:br@reecon.at). This work got heavily inspired by Greg Hurrell. Have a look at his repository (https://github.com/wincent/wincent).
 
