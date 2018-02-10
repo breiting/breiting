@@ -37,6 +37,7 @@ brew 'gnupg2'
 brew 'gnutls'
 brew 'gpg-agent'
 brew 'graphviz'
+brew 'icdiff'
 brew 'imagemagick'
 brew 'imapfilter'
 brew 'isync', args: ['with-berkeley-db']
