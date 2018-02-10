@@ -78,7 +78,7 @@ set autoindent
 set backspace=indent,start,eol                   " Allow unrestricted access of backspace in insert mode
 set autoread                                     " Auto read file if it changed
 set background=dark
-set colorline                                    " Mark the current line
+set cursorline                                   " Mark the current line
 set cindent
 set clipboard=unnamed                            " set clipboard to OSX default
 set colorcolumn=+1
