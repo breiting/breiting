@@ -87,7 +87,7 @@ brew 'qt'
 brew 'readline'
 brew 'reattach-to-user-namespace'
 brew 'terminal-notifier'
-brew 'tmux', args: ['HEAD']
+brew 'tmux' #, args: ['HEAD']
 brew 'tree'
 brew 'unar'
 brew 'urlview'
