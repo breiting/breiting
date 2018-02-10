@@ -4,6 +4,7 @@
 cask_args appdir: '/Applications'
 
 tap 'caskroom/cask'
+tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
@@ -103,4 +104,9 @@ cask 'iterm2-nightly'
 cask 'java8'
 cask 'onedrive'
 cask 'skype'
+
+# Fonts
+cask 'font-source-code-pro-for-powerline'
+cask 'font-menlo-for-powerline'
+cask 'font-meslo-for-powerline'
 
