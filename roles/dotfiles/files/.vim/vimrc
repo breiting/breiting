@@ -35,6 +35,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/tComment'
 Plugin 'vimwiki/vimwiki'
 Plugin 'w0rp/ale'                                " Linter for Javascript
+Plugin 'wincent/command-t'                       " Alternative to Ctrlp
 
 " ==== PLUGIN THEMES ====
 Plugin 'vim-scripts/darktango.vim'
