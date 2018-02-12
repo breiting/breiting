@@ -51,9 +51,6 @@ set ts_status_format = 'mutt %m messages%?n?, %n new?'
 
 macro compose \eh "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n"  #esc-h to turn markdown in html
 macro index,pager \es "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/scripts/sync.sh<enter>" "sync mails"
-macro index,pager S \
-"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-<shell-escape>~/.mutt/scripts/notmuch-mutt.pl -r --prompt search<enter>\
-<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
-<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-      "notmuch: search mail"
+
+# Call notmuch search taken from http://log.or.cz/?p=228
+macro index,pager S "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
