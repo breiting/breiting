@@ -13,3 +13,5 @@ bind index <up> sidebar-prev
 bind pager j next-line
 bind pager k previous-line
 
+bind attach <return> view-mailcap
+
