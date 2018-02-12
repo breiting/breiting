@@ -12,6 +12,7 @@ tap 'homebrew/services'
 tap 'tavianator/tap'
 
 # General packages.
+brew 'asciidoctor'
 brew 'abook'
 brew 'ack'
 brew 'astyle'
@@ -100,10 +101,11 @@ brew 'weechat'
 brew 'zsh'
 
 # General applications
-cask 'karabiner-elements'
+cask 'blender'
 cask 'google-chrome'
 cask 'iterm2-nightly'
 cask 'java8'
+cask 'karabiner-elements'
 cask 'onedrive'
 cask 'skype'
 
