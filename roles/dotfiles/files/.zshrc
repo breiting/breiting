@@ -30,7 +30,7 @@ case `uname` in
             security 2>&1 >/dev/null find-generic-password -ga artifactory \
                   |ruby -e 'print $1 if STDIN.gets =~ /^password: "(.*)"$/'
       }
-      
+
       # Get AZURE password
       get_azure_password () {
             security 2>&1 >/dev/null find-generic-password -ga azure \
@@ -53,7 +53,7 @@ export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault_pass.txt
 export MAVEN_USERNAME=admin
 export MAVEN_PASSWORD=$(get_artifactory_password)
 
-export QTDIR=/opt/Qt/5.10/clang_64
+export QTDIR=/usr/local/Cellar/qt/5.10.0_1
 export CMAKE_PREFIX_PATH=$QTDIR
 
 export EDITOR=vim
