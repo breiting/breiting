@@ -107,6 +107,7 @@ cask 'google-chrome'
 cask 'iterm2-nightly'
 cask 'java8'
 cask 'karabiner-elements'
+cask 'mactex'
 cask 'onedrive'
 cask 'skype'
 
