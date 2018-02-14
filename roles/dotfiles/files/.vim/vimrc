@@ -1,5 +1,4 @@
-" ========================================================================
-" Bernhard's vimrc file 2018
+
 " ========================================================================
 
 set nocompatible " Required by vundle
@@ -38,10 +37,8 @@ Plugin 'w0rp/ale'                                " Linter for Javascript
 Plugin 'wincent/command-t'                       " Alternative to Ctrlp
 
 " ==== PLUGIN THEMES ====
-Plugin 'vim-scripts/darktango.vim'
-Plugin 'jonathanfilip/vim-lucius'
-Plugin 'morhetz/gruvbox'
 Plugin 'bling/vim-airline'
+Plugin 'chriskempson/base16-vim'                 " from http://chriskempson.com/projects/base16/
 " ==== END PLUGIN THEMES ====
 
 " ==== PLUGIN SYNTAXES ====
@@ -58,7 +55,7 @@ Plugin 'plasticboy/vim-markdown'
 call vundle#end()
 filetype plugin indent on
 
-colorscheme gruvbox
+colorscheme base16-eighties
 syntax enable
 
 if exists('$SUDO_USER')                          " Keep the backup and swap files out of the way
@@ -79,7 +76,7 @@ set autoindent
 set backspace=indent,start,eol                   " Allow unrestricted access of backspace in insert mode
 set autoread                                     " Auto read file if it changed
 set background=dark
-set cursorline                                   " Mark the current line
+"set cursorline                                  " Mark the current line (disabled because of slow vim response)
 set cindent
 set clipboard=unnamed                            " set clipboard to OSX default
 set colorcolumn=+1
@@ -164,6 +161,9 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l> " hide search selection w/ C-l
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 map <Leader>nn :e ~/.vim/vimrc<cr>
 
+" Insert current date (in insert mode)
+inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
+
 " This shortcut copies the current filename and line number into the buffer for debugging (setting breakpoints)
 nnoremap <leader>y :let @+=expand("%:t") . ':' . line(".")<CR>
 
@@ -188,7 +188,6 @@ endfunction
 let g:ackprg="/usr/local/bin/ack -H --nocolor --nogroup --column"
 
 :set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h15
-
 
 set laststatus=2                                 " Configure Airline
 let g:airline#extensions#tabline#enabled = 1
