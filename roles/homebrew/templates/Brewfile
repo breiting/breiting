@@ -12,6 +12,7 @@ tap 'homebrew/services'
 tap 'tavianator/tap'
 
 # General packages.
+
 brew 'abook'
 brew 'ack'
 brew 'asciidoctor'
@@ -31,6 +32,7 @@ brew 'freetype'
 brew 'fswatch'
 brew 'gcc'
 brew 'gettext'
+brew 'ghi'
 brew 'git', args: ['with-pcre']
 brew 'glib'
 brew 'gnu-sed', args: ['with-default-names']
