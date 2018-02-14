@@ -681,14 +681,17 @@ $endif$
 \vfill
 \noindent {\huge \textbf{\textsf{$title$}}}
 $if(subtitle)$
-\vskip 1em
+\vskip 0.3em
 {\Large \textsf{$subtitle$}}
 $endif$
+
 \vskip 2em
 \noindent
-{\Large \textsf{\MakeUppercase{$for(author)$$author$$sep$, $endfor$}}
+    {\large \textsf{$for(author)$$author$$sep$, $endfor$}}
+\\
+$company$
 \vfill
-}
+    }
 
 $if(logo)$
 \noindent
@@ -696,7 +699,6 @@ $if(logo)$
 \includegraphics[width=80px, left]{$logo$}
 $endif$
 
-\textsf{$date$}}
 \end{flushleft}
 \end{titlepage}
 \restoregeometry
