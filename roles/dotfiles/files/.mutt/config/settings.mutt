@@ -33,7 +33,7 @@ set abort_unmodified = no
 # Changes:
 # - Show time in date/time.
 # - Show local date/time.
-set index_format = "%4C %Z %X %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
+set index_format = "%4C %Z %X %[%b %d %R] %-25.25L (%?l?%4l&%4c?) %s"
 
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set sidebar_divider_char = '│'
