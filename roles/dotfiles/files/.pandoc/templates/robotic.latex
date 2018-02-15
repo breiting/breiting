@@ -312,6 +312,14 @@ $else$
 $endif$
 $endif$
 
+% If signature is required, then bring in some macros
+$if(signature)$
+\newcommand*{\SignatureAndDate}[1]{%
+    \vspace{4cm}
+    \par\noindent\makebox[2.0in]{\hrulefill} \hfill\makebox[2.5in]{\hrulefill}%
+    \par\noindent\makebox[2.0in][l]{Date}      \hfill\makebox[2.5in][l]{#1}}
+$endif$
+
 % Make use of float-package and set default placement for figures to H
 \usepackage{float}
 \floatplacement{figure}{H}
@@ -781,4 +789,9 @@ $for(include-after)$
 $include-after$
 
 $endfor$
+
+$if(signature)$
+\SignatureAndDate{$signature$}
+$endif$
+
 \end{document}
