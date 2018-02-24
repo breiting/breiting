@@ -69,6 +69,6 @@ export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:$JAVA_HOME/bin"
 export PATH="$PATH:$QTDIR/bin"
 export PATH="$PATH:/Library/TeX/texbin"
-export PATH="$PATH:/Applications/calibre.app/Contents/MacOS"
+export PATH="$PATH:$HOME/workspace/br-utils"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
