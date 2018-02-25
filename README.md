@@ -42,6 +42,15 @@ Install all Mac defaults by calling `macos.sh`
 I added some schemes under `misc`. Currently my favorite is `Tomorrow Night` with Font `Source Code Pro for Powerline`
 font size 14px.
 
+### Übersicht widgets
+
+In order to install the Ubersicht widgets you have to symbolic link the widgets folder from the roles directory
+
+```
+cd ~/Library/Application Support/Übersicht
+ln -s ~/workspace/breiting/roles/ubersicht_widgets widgets
+```
+
 ## Installation
 
 ### Clone

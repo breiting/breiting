@@ -5,6 +5,9 @@
 - name: dotfiles | create backup directory
   file: path=~/.backups state=directory
 
+- name: dotfiles | make nerdbar directory
+  file: path=~/Library/Application\ Support/Übersicht/widgets state=directory
+
 - name: dotfiles | check for non-symlink originals
   command: test -e ~/{{ item }} -a ! -L ~/{{ item }}
   failed_when: original_check.rc > 1
