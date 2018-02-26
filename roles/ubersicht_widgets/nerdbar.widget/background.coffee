@@ -4,10 +4,10 @@ render: (output) ->
   ""
 
 style: """
-  top: 0
-  left: 0
-  height: 22px
-  width: 100%
-  background-color: #171717
+  background-color: #2d2d2d;
+  width: 100%;
+  bottom: 0px;
+  height: 36px
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.40);
   z-index: -1
 """
