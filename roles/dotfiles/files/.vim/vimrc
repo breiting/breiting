@@ -7,14 +7,15 @@ filetype off     " Required by vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" ==== PLUGINS ====
 Plugin 'VundleVim/Vundle.vim'
+" ==== PLUGINS ====
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'alpertuna/vim-header'
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'heavenshell/vim-jsdoc'
