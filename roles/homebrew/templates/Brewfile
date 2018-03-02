@@ -110,6 +110,7 @@ brew 'zsh'
 # General applications
 
 cask 'blender'
+cask 'gimp'
 cask 'google-chrome'
 cask 'iterm2-nightly'
 cask 'java8'
