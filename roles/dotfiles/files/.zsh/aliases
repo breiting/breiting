@@ -39,5 +39,7 @@ alias fsa="tmuxinator start fsa"
 
 if [[ $platform == 'Darwin' ]]; then
     alias vi='/usr/local/bin/vim'
+else
+    alias vi='/usr/bin/vim'
 fi
 

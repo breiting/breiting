@@ -1,0 +1,4 @@
+*foreground: #ffffff
+URxvt.font: xft:hack:size=11:antialias=true
+URxvt.background: [90]#000000
+URxvt.scrollBar: false
