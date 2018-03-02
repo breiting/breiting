@@ -9,9 +9,8 @@ fi
 alias aa='vim ~/.zsh/aliases'
 alias xxx='source ~/.zshrc'
 alias gd='git difftool --extcmd "icdiff -N"'
-alias gp='git push'
-alias gpf='git push -f'
 alias l='ls -laG'
+
 # Aliases for taskwarrior
 alias t='task'
 alias ta='task add'
@@ -24,6 +23,9 @@ alias jjj='python -m json.tool'
 # GIT
 alias gg="git log --graph --full-history --all --color --pretty=format:'%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s (%ar) [%an]'"
 alias ga="git add -A"
+alias ggg='git pull -r'
+alias gp='git push'
+alias gpf='git push -f'
 
 # Tmuxinator
 alias mm="tmuxinator start mail"
