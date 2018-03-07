@@ -7,7 +7,7 @@ it as a guideance for your environment. Most credits go to Greg Hurrell (see bel
 
 ## Pre-requisite (tasks which have been done manually)
 
-* Install Ansible with `easy_install install pip`
+* Install Ansible with `sudo easy_instal pip`
 * Restore your data from your backup source (e.g. TimeMachine)
 
 ### MacOS only
