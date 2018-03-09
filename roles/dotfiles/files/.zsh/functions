@@ -6,6 +6,11 @@ function g {
   fi
 }
 
+# Simply convert a hex number into a binary number
+function hex2bin {
+    echo "obase=2; ibase=16; $1" | bc
+}
+
 # Send a tmux command to the right pane
 function ts {
     args="$@"
