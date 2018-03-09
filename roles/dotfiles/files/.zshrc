@@ -61,6 +61,7 @@ export SHELL=/bin/zsh
 
 # Sourcing of other files
 source $HOME/.zsh/aliases
+source $HOME/.zsh/pomodoro.sh
 source $HOME/.zsh/functions
 source $HOME/.zsh/prompt
 
