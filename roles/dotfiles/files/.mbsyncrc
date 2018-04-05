@@ -17,12 +17,11 @@ Account live
 MaildirStore live-local
 Path ~/Maildir/live/
 Inbox ~/Maildir/live/inbox
-Trash trash
 
 Channel live-folders
 Master :live-remote:
 Slave :live-local:
-Patterns "INBOX" "!Drafts" "!Arch*" "Sent*" "Trash" "Junk" "Deleted*"
+Patterns "INBOX" "!Drafts" "!Arch*" "Sent*" "Junk" "Deleted*"
 Create Both
 Expunge Both
 SyncState *
@@ -49,7 +48,6 @@ Account robotic
 MaildirStore robotic-local
 Path ~/Maildir/robotic/
 Inbox ~/Maildir/robotic/inbox
-Trash trash
 
 Channel robotic-folders
 Master :robotic-remote:
@@ -83,7 +81,6 @@ Account info
 MaildirStore info-local
 Path ~/Maildir/info/
 Inbox ~/Maildir/info/inbox
-Trash trash
 
 Channel info-folders
 Master :info-remote:
@@ -115,7 +112,6 @@ Account reecon
 MaildirStore reecon-local
 Path ~/Maildir/reecon/
 Inbox ~/Maildir/reecon/inbox
-Trash trash
 
 Channel reecon-folders
 Master :reecon-remote:
