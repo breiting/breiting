@@ -53,7 +53,7 @@ export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault_pass.txt
 export MAVEN_USERNAME=admin
 export MAVEN_PASSWORD=$(get_artifactory_password)
 
-export QTDIR=/usr/local/Cellar/qt/5.10.0_1
+export QTDIR=/usr/local/Cellar/qt/5.10.1
 export CMAKE_PREFIX_PATH=$QTDIR
 
 export EDITOR=vim
