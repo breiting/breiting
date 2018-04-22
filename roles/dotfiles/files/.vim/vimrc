@@ -79,7 +79,7 @@ set autoread                                     " Auto read file if it changed
 set background=dark
 "set cursorline                                  " Mark the current line (disabled because of slow vim response)
 set cindent
-set clipboard=unnamed                            " set clipboard to OSX default
+set clipboard=unnamed                        " set clipboard to OSX default Linux!!!
 set colorcolumn=+1
 set encoding=utf-8
 set expandtab
@@ -265,3 +265,7 @@ highlight YcmErrorLine guibg=#433D3D
 
 " ALE Linter
 let g:ale_lint_on_text_changed = 'never'
+
+" Set comment color to terminal color (required for linux)
+hi Comment ctermfg=4
+

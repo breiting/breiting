@@ -1,7 +1,7 @@
 # Handle the fact that this file will be used with multiple OSs
 platform=`uname`
 if [[ $platform == 'Linux' ]]; then
-  alias ls='ls -lrth --color'
+  alias ls='ls -lhG --color'
 elif [[ $platform == 'Darwin' ]]; then
   alias ls='ls -lhG'
 fi
@@ -10,7 +10,7 @@ alias aa='vim ~/.zsh/aliases'
 alias bbb='vim ~/workspace/breiting/roles/homebrew/templates/Brewfile'
 alias xxx='source ~/.zshrc'
 alias gd='git difftool --extcmd "icdiff -N"'
-alias l='ls -laG'
+alias l='ls -laG --color'
 
 # Aliases for taskwarrior
 alias t='task'
