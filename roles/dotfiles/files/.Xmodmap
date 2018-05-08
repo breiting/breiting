@@ -1,2 +1,9 @@
 keycode 52 = y
 keycode 29 = z
+
+clear Mod1
+clear Control
+
+add Mod1 = Alt_L Meta_L
+add Control = Control_R Control_L Alt_R
+

@@ -161,6 +161,7 @@ nnoremap <leader>sp :call FixLastSpellingError()<cr>
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l> " hide search selection w/ C-l
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 map <Leader>nn :e ~/.vim/vimrc<cr>
+map <Leader><Esc> :BufExplorer<cr>
 
 " Insert current date (in insert mode)
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
@@ -262,6 +263,8 @@ let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_filetype_blacklist = { 'asciidoc': 1, 'mail': 1, 'vimwiki': 1, 'markdown': 1 }
 highlight YcmErrorLine guibg=#433D3D
+
+let g:powerline_pycmd = 'py3'
 
 " ALE Linter
 let g:ale_lint_on_text_changed = 'never'
