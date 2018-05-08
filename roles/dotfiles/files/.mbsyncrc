@@ -18,7 +18,7 @@ MaildirStore live-local
 Path ~/Maildir/live/
 Inbox ~/Maildir/live/inbox
 
-Channel live-folders
+Channel live-folders-all
 Master :live-remote:
 Slave :live-local:
 Patterns "INBOX" "!Drafts" "!Arch*" "Sent*" "Junk" "Deleted*"
@@ -26,8 +26,14 @@ Create Both
 Expunge Both
 SyncState *
 
-Group live
-Channel live-folders
+Channel live-folders-new
+Master :live-remote:
+Slave :live-local:
+Patterns "INBOX"
+Create Both
+Expunge Both
+SyncState *
+
 
 # #########################################
 # Robotic eyes
@@ -49,7 +55,7 @@ MaildirStore robotic-local
 Path ~/Maildir/robotic/
 Inbox ~/Maildir/robotic/inbox
 
-Channel robotic-folders
+Channel robotic-folders-all
 Master :robotic-remote:
 Slave :robotic-local:
 Patterns "INBOX"
@@ -59,8 +65,13 @@ Create Both
 Expunge Both
 SyncState *
 
-Group robotic
-Channel robotic-folders
+Channel robotic-folders-new
+Master :robotic-remote:
+Slave :robotic-local:
+Patterns "INBOX"
+Create Both
+Expunge Both
+SyncState *
 
 # #########################################
 # Robotic eyes Info
@@ -82,16 +93,13 @@ MaildirStore info-local
 Path ~/Maildir/info/
 Inbox ~/Maildir/info/inbox
 
-Channel info-folders
+Channel info-folders-inbox
 Master :info-remote:
 Slave :info-local:
 Patterns "INBOX"
 Create Both
 Expunge Both
 SyncState *
-
-Group info
-Channel info-folders
 
 # #########################################
 # Reecon
@@ -113,7 +121,7 @@ MaildirStore reecon-local
 Path ~/Maildir/reecon/
 Inbox ~/Maildir/reecon/inbox
 
-Channel reecon-folders
+Channel reecon-folders-all
 Master :reecon-remote:
 Slave :reecon-local:
 Patterns "INBOX"
@@ -122,5 +130,25 @@ Create Both
 Expunge Both
 SyncState *
 
-Group reecon
-Channel reecon-folders
+Channel reecon-folders-new
+Master :reecon-remote:
+Slave :reecon-local:
+Patterns "INBOX"
+Create Both
+Expunge Both
+SyncState *
+
+Group all
+Channel info-folders-inbox
+Channel live-folders-all
+Channel robotic-folders-all
+Channel reecon-folders-all
+
+# #########################################
+# Separate group for only syncing INBOX
+# #########################################
+
+Group new
+Channel live-folders-new
+Channel reecon-folders-new
+Channel robotic-folders-new

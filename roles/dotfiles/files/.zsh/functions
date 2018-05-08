@@ -11,6 +11,11 @@ function hex2bin {
     echo "obase=2; ibase=16; $1" | bc
 }
 
+# Simply convert a bin number into a hex number
+function bin2hex {
+    echo "obase=16; ibase=2; $1" | bc
+}
+
 # Send a tmux command to the right pane
 function ts {
     args="$@"
@@ -43,6 +48,7 @@ function formatcode {
     find . -name "*.c" | xargs astyle
     find . -name "*.cpp" | xargs astyle
     find . -name "*.hpp" | xargs astyle
+    find . -name "*.h" | xargs astyle
     find . -name "*.orig" | xargs rm
 }
 function formatjava {

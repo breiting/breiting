@@ -1,4 +1,6 @@
 #!/bin/sh
 
-mbsync -a
+# Only sync INBOX
+mbsync new
+# Update notmuch
 notmuch new

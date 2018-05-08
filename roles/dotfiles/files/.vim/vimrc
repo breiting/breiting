@@ -13,7 +13,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'alpertuna/vim-header'
-Plugin 'artur-shaik/vim-javacomplete2'
+"Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'ervandew/supertab'
@@ -115,13 +115,14 @@ augroup vimrc
   autocmd BufRead,BufWritePre,FileWritePre * silent! %s/[\r \t]\+$//
 augroup END
 
-" Javacomplete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" Javacomplete (too slow)
+"autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Autoformat style
 let g:formatdef_my_custom_cpp = '"astyle"'
 let g:formatdef_my_custom_java = '"astyle --options=$HOME/.astylerc-java"'
 let g:formatdef_my_custom_javascript = '"standard --fix"'
+let g:formatters_c = ['my_custom_cpp']"
 let g:formatters_cpp = ['my_custom_cpp']"
 let g:formatters_java = ['my_custom_java']"
 let g:formatters_javascript = ['my_custom_javascript']"
