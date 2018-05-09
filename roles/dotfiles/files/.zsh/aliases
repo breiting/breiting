@@ -10,7 +10,7 @@ alias aa='vim ~/.zsh/aliases'
 alias bbb='vim ~/workspace/breiting/roles/homebrew/templates/Brewfile'
 alias xxx='source ~/.zshrc'
 alias gd='git difftool --extcmd "icdiff -N"'
-alias l='ls -laG --color'
+alias l='ls -laG'
 
 # Aliases for taskwarrior
 alias t='task'
