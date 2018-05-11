@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#xinput --set-prop 12 'libinput Natural Scrolling Enabled' 1
+#xinput --set-prop 12 'libinput Accel Speed' -0.5
+
+$HOME/workspace/br-utils/dwm_status&
+
+exec dwm

@@ -16,6 +16,11 @@ function bin2hex {
     echo "obase=16; ibase=2; $1" | bc
 }
 
+# Mount NEO data CIFS share
+function neo.data {
+    sudo mount.cifs //neo/data /neo/data -o username=$USER,uid=$USER,password=`pass show private/accounts/neo`
+}
+
 # Send a tmux command to the right pane
 function ts {
     args="$@"

@@ -42,6 +42,7 @@ case `uname` in
     get_artifactory_password () {}
     get_azure_password () {}
     export JAVA_HOME=/usr/lib/jvm/default-java
+    export GDK_SCALE=2
   ;;
   FreeBSD)
     # commands for FreeBSD go here
@@ -71,5 +72,7 @@ export PATH="$PATH:$JAVA_HOME/bin"
 export PATH="$PATH:$QTDIR/bin"
 export PATH="$PATH:/Library/TeX/texbin"
 export PATH="$PATH:$HOME/workspace/br-utils"
+export PATH=$PATH:/opt/azure/bin
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# source '/opt/azure/az.completion'

@@ -1,8 +1,11 @@
+Xft.dpi: 120
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
 Xft.antialias: true
 
 URxvt.font: xft:hack:size=10
 
-URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.perl-ext-common: default,matcher,resize-font,selection-to-clipboard
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 ! Base16 Eighties
@@ -44,7 +47,7 @@ URxvt.matcher.button: 1
 
 *color8:       base03
 *color9:       base08
-*color10:      base01
+*color10:      base0B
 *color11:      base0A
 *color12:      base0D
 *color13:      base0E
