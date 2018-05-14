@@ -1,6 +1,6 @@
 # Show contents of directory after cd-ing into it
 chpwd() {
-  ls -lhG
+  ls
 }
 
 # Save history
@@ -41,7 +41,7 @@ case `uname` in
   Linux)
     get_artifactory_password () {}
     get_azure_password () {}
-    export JAVA_HOME=/usr/lib/jvm/default-java
+    export JAVA_HOME=/usr/lib/jvm/default
     export GDK_SCALE=2
   ;;
   FreeBSD)
