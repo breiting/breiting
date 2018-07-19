@@ -17,14 +17,14 @@ set move = no
 set pager_stop
 set query_command = "lbdbq %s 2>/dev/null"
 set realname = 'Bernhard Reitinger'
-set sendmail_wait = -1   # do not wait for sendmail to finish
+#set sendmail_wait = -1   # do not wait for sendmail to finish
 set sleep_time = 0 # be fast :-)
 set smart_wrap
 set sort=reverse-date
 set text_flowed # required for vim
 set use_from
 set wait_key = no
-set mime_forward=yes
+set mime_forward=no #yes
 set mime_forward_rest=yes
 
 set abort_nosubject = no

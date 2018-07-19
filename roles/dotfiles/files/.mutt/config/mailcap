@@ -13,7 +13,7 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.mutt
 text/calendar; ~/.mutt/scripts/view_attachment.sh %s ics open
 
 # HTML
-text/html; CHARSET=%{charset} ~/.mutt/scripts/view_attachment.sh %s html
+text/html; CHARSET=%{charset} ~/.mutt/scripts/view_attachment.sh %s html firefox
 text/html; elinks -dump %s -dump-charset %{charset} -force-html; nametemplate=%s.html; copiousoutput
 
 text/plain; ~/.mutt/scripts/view_mail.sh %s %{charset}; needsterminal

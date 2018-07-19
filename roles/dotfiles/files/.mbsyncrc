@@ -8,8 +8,8 @@ User bernhard.reitinger@live.com
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1
-PassCmd "security find-generic-password -s mbsync-live-password -w"
-CertificateFile /usr/local/etc/openssl/cert.pem
+PassCmd "pass private/accounts/live | head -n1"
+CertificateFile ~/.cert/office.pem
 
 IMAPStore live-remote
 Account live
@@ -21,7 +21,7 @@ Inbox ~/Maildir/live/inbox
 Channel live-folders-all
 Master :live-remote:
 Slave :live-local:
-Patterns "INBOX" "!Drafts" "!Arch*" "Sent*" "Junk" "Deleted*"
+Patterns "INBOX" "!Drafts" "!Arch*" "!Sent*" "!Junk" "!Deleted*"
 Create Both
 Expunge Both
 SyncState *
@@ -45,8 +45,8 @@ User bernhard.reitinger@robotic-eyes.com
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1
-PassCmd "security find-generic-password -s mbsync-robotic-password -w"
-CertificateFile /usr/local/etc/openssl/cert.pem
+PassCmd "pass private/accounts/office-robotic | head -n1"
+CertificateFile ~/.cert/office.pem
 
 IMAPStore robotic-remote
 Account robotic
@@ -59,7 +59,7 @@ Channel robotic-folders-all
 Master :robotic-remote:
 Slave :robotic-local:
 Patterns "INBOX"
-Patterns "Archive" "Sent*" "Junk*" "Deleted*"
+Patterns "Archive" "Sent*" "!Junk*" "!Deleted*"
 Patterns "!Archive1"
 Create Both
 Expunge Both
@@ -68,34 +68,6 @@ SyncState *
 Channel robotic-folders-new
 Master :robotic-remote:
 Slave :robotic-local:
-Patterns "INBOX"
-Create Both
-Expunge Both
-SyncState *
-
-# #########################################
-# Robotic eyes Info
-# #########################################
-
-IMAPAccount info
-Host outlook.office365.com
-User bernhard.reitinger@robotic-eyes.com/info@robotic-eyes.com
-AuthMechs LOGIN
-SSLType IMAPS
-SSLVersions TLSv1
-PassCmd "security find-generic-password -s mbsync-robotic-password -w"
-CertificateFile /usr/local/etc/openssl/cert.pem
-
-IMAPStore info-remote
-Account info
-
-MaildirStore info-local
-Path ~/Maildir/info/
-Inbox ~/Maildir/info/inbox
-
-Channel info-folders-inbox
-Master :info-remote:
-Slave :info-local:
 Patterns "INBOX"
 Create Both
 Expunge Both
@@ -111,8 +83,8 @@ User br@reecon.at
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1
-PassCmd "security find-generic-password -s mbsync-reecon-password -w"
-CertificateFile /usr/local/etc/openssl/cert.pem
+PassCmd "pass private/accounts/office-reecon | head -n1"
+CertificateFile ~/.cert/office.pem
 
 IMAPStore reecon-remote
 Account reecon
@@ -125,7 +97,7 @@ Channel reecon-folders-all
 Master :reecon-remote:
 Slave :reecon-local:
 Patterns "INBOX"
-Patterns "Archive" "Gesendete*" "Junk*" "Deleted*"
+Patterns "Archive" "Gesendete*" "!Junk*" "!Deleted*"
 Create Both
 Expunge Both
 SyncState *
