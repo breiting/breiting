@@ -31,4 +31,4 @@ SORT_OUTPUT=name
 # - m_vcf        search a vcard (according to RFC2426) file.
 # - m_khard      search a CardDAV address book via khard
 
-METHODS="m_inmail m_muttalias m_osx_addressbook"
+METHODS="m_inmail m_muttalias m_khard m_osx_addressbook"
