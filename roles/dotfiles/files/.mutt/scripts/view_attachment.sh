@@ -128,7 +128,7 @@ fi
 # Otherwise we've been told what to use.  So do an open -a.
 
 if [ -z $open_with ]; then
-    open $newfile
+    xdg-open $newfile &
 else
-    open -b "$open_with" $newfile
+    "$open_with" $newfile &
 fi
