@@ -18,8 +18,6 @@
     user = breiting
 [fetch]
     prune = true
-[ghi]
-	token = !security find-internet-password -a breiting -s github.com -l 'ghi token' -w
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
