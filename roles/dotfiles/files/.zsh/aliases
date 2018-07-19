@@ -11,6 +11,7 @@ alias bbb='vim ~/workspace/breiting/roles/homebrew/templates/Brewfile'
 alias xxx='source ~/.zshrc'
 alias gd='git difftool --extcmd "icdiff -N"'
 alias l='ls -laG'
+alias feh='feh --scale-down --auto-zoom'
 
 # Aliases for taskwarrior
 alias t='task'
