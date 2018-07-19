@@ -3,11 +3,19 @@ Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.antialias: true
 
-URxvt.font: xft:hack:size=10
+URxvt.font            : xft:hack:size=10
+URxvt.perl-ext-common : default,matcher,resize-font,selection-to-clipboard,url-select,keyboard-select,clipboard
+URxvt.url-launcher    : /usr/bin/xdg-open
+URxvt.matcher.button  : 1
+URxvt.scrollBar       : false
+! Use C-p and C-v for copy and paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+! Disable picture insert mode
+URxvt.iso14755: false
 
-URxvt.perl-ext-common: default,matcher,resize-font,selection-to-clipboard
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
 ! Base16 Eighties
 ! Scheme: Chris Kempson (http://chriskempson.com)
 
@@ -62,3 +70,4 @@ URxvt.matcher.button: 1
 *color19:      base02
 *color20:      base04
 *color21:      base06
+
