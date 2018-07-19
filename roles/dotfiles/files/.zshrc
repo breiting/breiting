@@ -42,7 +42,7 @@ case `uname` in
     get_artifactory_password () {}
     get_azure_password () {}
     export JAVA_HOME=/usr/lib/jvm/default
-    export GDK_SCALE=2
+    export GDK_SCALE=1
   ;;
   FreeBSD)
     # commands for FreeBSD go here
@@ -73,6 +73,11 @@ export PATH="$PATH:$QTDIR/bin"
 export PATH="$PATH:/Library/TeX/texbin"
 export PATH="$PATH:$HOME/workspace/br-utils"
 export PATH=$PATH:/opt/azure/bin
+export PATH=$PATH:/opt/idea-IC-181.4892.42/bin
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # source '/opt/azure/az.completion'
+
+# Activate FZF fuzzy finder
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh

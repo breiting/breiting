@@ -21,10 +21,20 @@ function neo.data {
     sudo mount.cifs //neo/data /neo/data -o username=$USER,uid=$USER,password=`pass show private/accounts/neo`
 }
 
+function neo.scans {
+    sudo mount.cifs //neo/scans /neo/scans -o username=$USER,uid=$USER,password=`pass show private/accounts/neo`
+}
+
 # Sync OneDrive
 function sync-onedrive {
     onedrive --confdir="~/.config/onedrive_reecon"
     onedrive --confdir="~/.config/onedrive_robotic"
+}
+
+
+# Load secret keys
+function load-secrets() {
+    export GHI_TOKEN=`pass private/accounts/github-ghi-token`
 }
 
 # Send a tmux command to the right pane
