@@ -29,6 +29,7 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
@@ -56,7 +57,7 @@ Plugin 'plasticboy/vim-markdown'
 call vundle#end()
 filetype plugin indent on
 
-colorscheme base16-eighties
+"colorscheme base16-eighties
 syntax enable
 
 if exists('$SUDO_USER')                          " Keep the backup and swap files out of the way
@@ -92,7 +93,7 @@ set hlsearch
 set ignorecase smartcase
 set incsearch
 set laststatus=2
-set mouse=a
+set mouse=r
 set nobackup                                     " Do not generate ~ files
 set noerrorbells visualbell t_vb=                " turns off all error bells, visual or otherwise
 set nofoldenable
@@ -164,6 +165,8 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 map <Leader>nn :e ~/.vim/vimrc<cr>
 map <Leader><Esc> :BufExplorer<cr>
 
+noremap <silent> <F4> :let @*=expand("%:p")<CR>
+
 " Insert current date (in insert mode)
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 
@@ -224,6 +227,8 @@ let g:ale_pattern_options = {
 \   '.*\.h$': {'ale_enabled': 0}
 \}
 
+let g:ale_c_clangtidy_checks=["*", "-android*", "-google-readabi*", "-hicpp-*", "-*-braces-around-statements"]
+
 " Change VimWiki setting
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.wiki'}]
 
@@ -273,3 +278,6 @@ let g:ale_lint_on_text_changed = 'never'
 " Set comment color to terminal color (required for linux)
 hi Comment ctermfg=4
 
+let vim_markdown_preview_browser='qutebrowser'
+let vim_markdown_preview_pandoc=1
+let vim_markdown_preview_use_xdg_open=1
