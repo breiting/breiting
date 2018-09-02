@@ -60,6 +60,8 @@ export CMAKE_PREFIX_PATH=$QTDIR
 export EDITOR=vim
 export SHELL=/bin/zsh
 
+export GOPATH=$HOME/workspace/go
+
 # Sourcing of other files
 source $HOME/.zsh/aliases
 source $HOME/.zsh/pomodoro.sh
@@ -74,6 +76,7 @@ export PATH="$PATH:/Library/TeX/texbin"
 export PATH="$PATH:$HOME/workspace/br-utils"
 export PATH=$PATH:/opt/azure/bin
 export PATH=$PATH:/opt/idea-IC-181.4892.42/bin
+export PATH=$PATH:$GOPATH/bin
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # source '/opt/azure/az.completion'

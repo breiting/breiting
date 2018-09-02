@@ -24,7 +24,7 @@ set sort=reverse-date
 set text_flowed # required for vim
 set use_from
 set wait_key = no
-set mime_forward=no #yes
+set mime_forward=yes
 set mime_forward_rest=yes
 
 set abort_nosubject = no
@@ -54,3 +54,8 @@ macro index,pager \es "<enter-command>unset wait_key<enter><shell-escape>~/.mutt
 
 # Call notmuch search taken from http://log.or.cz/?p=228
 macro index,pager S "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
+
+# Add address to khard address book
+macro index,pager K \
+    "<pipe-message>khard add-email<return>" \
+    "add the sender email address to khard"

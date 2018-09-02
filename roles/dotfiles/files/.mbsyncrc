@@ -105,7 +105,7 @@ SyncState *
 Channel reecon-folders-new
 Master :reecon-remote:
 Slave :reecon-local:
-Patterns "INBOX"
+Patterns "INBOX" "brain"
 Create Both
 Expunge Both
 SyncState *

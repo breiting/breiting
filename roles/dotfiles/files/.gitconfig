@@ -25,3 +25,5 @@
 	required = true
 [cola]
 	spellcheck = false
+[difftool]
+	prompt = false

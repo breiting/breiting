@@ -22,6 +22,7 @@ Plugin 'heavenshell/vim-jsdoc'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kien/ctrlp.vim'
+Plugin 'fatih/vim-go'
 Plugin 'mileszs/ack.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
@@ -176,6 +177,12 @@ nnoremap <leader>y :let @+=expand("%:t") . ':' . line(".")<CR>
 autocmd FileType cpp          map <F10> :wa<cr>:call RunMake()<cr>
 autocmd FileType javascript   map <F10> :wa<cr>:call RunNpmTest()<cr>
 
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <F1>      <Plug>(go-doc)
+
 function! RunNpmTest()
     exec ':silent !tmux send-keys -t right "npm test" C-m'
     :redraw!
@@ -191,7 +198,7 @@ function! RunGoogleChrome()
     :redraw!
 endfunction
 
-let g:ackprg="/usr/local/bin/ack -H --nocolor --nogroup --column"
+let g:ackprg="/usr/bin/vendor_perl/ack -H --nocolor --nogroup --column"
 
 :set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h15
 

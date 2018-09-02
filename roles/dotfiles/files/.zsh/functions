@@ -21,6 +21,24 @@ function neo.data {
     sudo mount.cifs //neo/data /neo/data -o username=$USER,uid=$USER,password=`pass show private/accounts/neo`
 }
 
+# SSH to a remote machine in the local network
+function bbb {
+  if [[ $# < 1 ]]; then
+    echo "Please specify last number of IP (e.g. bbb 120 means ssh debian@192.168.0.120)"
+  else
+    ssh debian@192.168.0.$1
+  fi
+}
+
+# SCP to a remote machine in the local network
+function bbc {
+  if [[ $# < 2 ]]; then
+    echo "Usage: bbc <file> <last IP>, e.g. bbc test.txt 120 copies test.txt to 192.168.0.120:~/"
+  else
+    scp -r $1 debian@192.168.0.$2:~/
+  fi
+}
+
 function neo.scans {
     sudo mount.cifs //neo/scans /neo/scans -o username=$USER,uid=$USER,password=`pass show private/accounts/neo`
 }

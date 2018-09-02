@@ -7,11 +7,14 @@ elif [[ $platform == 'Darwin' ]]; then
 fi
 
 alias aa='vim ~/.zsh/aliases'
-alias bbb='vim ~/workspace/breiting/roles/homebrew/templates/Brewfile'
 alias xxx='source ~/.zshrc'
 alias gd='git difftool --extcmd "icdiff -N"'
 alias l='ls -laG'
-alias feh='feh --scale-down --auto-zoom'
+alias feh='feh --scale-down --auto-zoom --auto-rotate'
+alias gogob='cd ~/workspace/go/src/github.com/breiting'
+alias gogor='cd ~/workspace/go/src/github.com/roboticeyes'
+
+alias open='xdg-open'
 
 # Aliases for taskwarrior
 alias t='task'
