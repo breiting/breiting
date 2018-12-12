@@ -45,14 +45,13 @@ function neo.scans {
 
 # Sync OneDrive
 function sync-onedrive {
-    onedrive --confdir="~/.config/onedrive_reecon"
     onedrive --confdir="~/.config/onedrive_robotic"
 }
-
 
 # Load secret keys
 function load-secrets() {
     export GHI_TOKEN=`pass private/accounts/github-ghi-token`
+    export RE_DOCKER_PASSWORD=`pass show robotic/accounts/rex-docker-registry | head -n1`
 }
 
 # Send a tmux command to the right pane

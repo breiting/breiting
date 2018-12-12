@@ -254,6 +254,7 @@ $if(graphics)$
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
+
 $if(beamer)$
 % Prevent slide breaks in the middle of a paragraph:
 \widowpenalties 1 10000
@@ -315,14 +316,15 @@ $endif$
 % If signature is required, then bring in some macros
 $if(signature)$
 \newcommand*{\SignatureAndDate}[1]{%
-    \vspace{3cm}
+    \vspace{4cm}
     \par\noindent\makebox[2.0in]{\hrulefill} \hfill\makebox[2.5in]{\hrulefill}%
     \par\noindent\makebox[2.0in][l]{Date}      \hfill\makebox[2.5in][l]{#1}}
 $endif$
 
 % Make use of float-package and set default placement for figures to H
-\usepackage{float}
-\floatplacement{figure}{H}
+% breiting 24.8.2018
+%\usepackage{float}
+%\floatplacement{figure}{H}
 
 $for(header-includes)$
 $header-includes$
@@ -549,6 +551,7 @@ $if(tables)$
 \arrayrulecolor{table-rule-color}     % color of \toprule, \midrule, \bottomrule
 \setlength\heavyrulewidth{0.3ex}      % thickness of \toprule, \bottomrule
 \renewcommand{\arraystretch}{1.3}     % spacing (padding)
+
 \rowcolors{3}{}{table-row-color!100}  % row color
 
 % Reset rownum counter so that each table
@@ -584,10 +587,10 @@ $endif$
 
 $if(listings)$
 \lstdefinestyle{eisvogel_listing_style}{
-  language         = java,
+  language         = c++,
   numbers          = left,
   backgroundcolor  = \color{listing-background},
-  basicstyle       = \color{listing-text-color}\small\ttfamily{}\linespread{1.15}, % print whole listing small
+  basicstyle       = \color{listing-text-color}\ttfamily{}\linespread{1.15}, % print whole listing small
   xleftmargin      = 2.7em,
   breaklines       = true,
   frame            = single,
@@ -650,7 +653,7 @@ $endif$
 \chead{}
 \rhead{$date$}
 \lfoot{$company$}
-\cfoot{$documentid$}
+\cfoot{}
 \rfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -799,10 +802,6 @@ $endfor$
 
 $if(signature)$
 \SignatureAndDate{$signature$}
-$endif$
-
-$if(customer)$
-\SignatureAndDate{$customer$}
 $endif$
 
 \end{document}

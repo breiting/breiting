@@ -6,8 +6,11 @@ elif [[ $platform == 'Darwin' ]]; then
   alias ls='ls -lhG'
 fi
 
+alias cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head'
+alias mem='ps axch -o cmd:15,%mem --sort=-%mem | head'
+
 alias aa='vim ~/.zsh/aliases'
-alias xxx='source ~/.zshrc'
+alias xxx='source ~/.zshrc; load-secrets'
 alias gd='git difftool --extcmd "icdiff -N"'
 alias l='ls -laG'
 alias feh='feh --scale-down --auto-zoom --auto-rotate'

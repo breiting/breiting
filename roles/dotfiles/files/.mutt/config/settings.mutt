@@ -30,6 +30,14 @@ set mime_forward_rest=yes
 set abort_nosubject = no
 set abort_unmodified = no
 
+# Set default email settings to reecon
+set from      = 'br@reecon.at'"
+set postponed = '+reecon/Drafts'"
+set record    = '+reecon/Gesendete Elemente'"
+set sendmail  = '/usr/bin/msmtp -a reecon'"
+set signature = '.mutt/signatures/reecon'"
+#
+
 # Changes:
 # - Show time in date/time.
 # - Show local date/time.

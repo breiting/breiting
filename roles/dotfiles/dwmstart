@@ -5,4 +5,10 @@
 
 $HOME/workspace/br-utils/dwm_status&
 
+# Start dunst (lean notification program)
+# https://wiki.archlinux.org/index.php/Dunst
+if [ -f /usr/bin/dunst ]; then
+    /usr/bin/dunst&
+fi
+
 exec dwm

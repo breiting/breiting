@@ -54,6 +54,10 @@ export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault_pass.txt
 export MAVEN_USERNAME=admin
 export MAVEN_PASSWORD=$(get_artifactory_password)
 
+# Setup Docker credentials (you need to call load-secrets for password)
+export RE_DOCKER_USERNAME=roboticeyes
+export RE_DOCKER_REGISTRY=roboticeyes.azurecr.io
+
 export QTDIR=/usr/local/Cellar/qt/5.10.1
 export CMAKE_PREFIX_PATH=$QTDIR
 
