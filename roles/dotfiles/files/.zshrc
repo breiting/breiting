@@ -49,6 +49,8 @@ case `uname` in
   ;;
 esac
 
+export READER="zathura"
+export BROWSER="firefox"
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault_pass.txt
 
 export MAVEN_USERNAME=admin

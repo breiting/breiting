@@ -14,7 +14,8 @@ text/calendar; ~/.mutt/scripts/view_attachment.sh %s ics open
 
 # HTML
 text/html; CHARSET=%{charset} ~/.mutt/scripts/view_attachment.sh %s html firefox
-text/html; elinks -dump %s -dump-charset %{charset} -force-html; nametemplate=%s.html; copiousoutput
+#text/html; elinks -dump %s -dump-charset %{charset} -force-html; nametemplate=%s.html; copiousoutput
+text/html; w3m -I %{charset} -T text/html; copiousoutput
 
 text/plain; ~/.mutt/scripts/view_mail.sh %s %{charset}; needsterminal
 

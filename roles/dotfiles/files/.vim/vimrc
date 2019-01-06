@@ -1,4 +1,8 @@
-" ========================================================================
+"       _
+"__   _(_)_ __ ___  _ __ ___
+"\ \ / / | '_ ` _ \| '__/ __|
+" \ V /| | | | | | | | | (__
+"  \_/ |_|_| |_| |_|_|  \___|
 
 set nocompatible " Required by vundle
 filetype off     " Required by vundle
@@ -9,53 +13,38 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " ==== PLUGINS ====
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'alpertuna/vim-header'
-"Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'aklt/plantuml-syntax'
+Plugin 'bling/vim-airline'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'chriskempson/base16-vim'                 " from http://chriskempson.com/projects/base16/
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'ervandew/supertab'
+Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kien/ctrlp.vim'
-Plugin 'fatih/vim-go'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ternjs/tern_for_vim'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/tComment'
-Plugin 'vimwiki/vimwiki'
 Plugin 'w0rp/ale'                                " Linter for Javascript
 Plugin 'wincent/command-t'                       " Alternative to Ctrlp
 
-" ==== PLUGIN THEMES ====
-Plugin 'bling/vim-airline'
-Plugin 'chriskempson/base16-vim'                 " from http://chriskempson.com/projects/base16/
-" ==== END PLUGIN THEMES ====
-
-" ==== PLUGIN SYNTAXES ====
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'aklt/plantuml-syntax'
-Plugin 'plasticboy/vim-markdown'
-" === END PLUGIN SYNTAXES ====
-
-" ==== END PLUGINS ====
-
-" Plugin 'SirVer/ultisnips'
-" Plugin 'qpkorr/vim-bufkill'
-
 call vundle#end()
+
 filetype plugin indent on
 
 syntax enable
@@ -78,9 +67,8 @@ set autoindent
 set backspace=indent,start,eol                   " Allow unrestricted access of backspace in insert mode
 set autoread                                     " Auto read file if it changed
 set background=dark
-"set cursorline                                  " Mark the current line (disabled because of slow vim response)
 set cindent
-set clipboard=unnamed                        " set clipboard to OSX default Linux!!!
+set clipboard=unnamed                            " set clipboard to OSX default Linux!!!
 set colorcolumn=+1
 set encoding=utf-8
 set expandtab
@@ -111,13 +99,13 @@ set textwidth=120                                " add visualization for max tex
 set list listchars=tab:▸\ ,trail:.
 set list
 
+" Set leader to space
+let mapleader=" "
+
+" Automatically delete trailing DOS-returns and whitespace on file open and write.
 augroup vimrc
-  " Automatically delete trailing DOS-returns and whitespace on file open and write.
   autocmd BufRead,BufWritePre,FileWritePre * silent! %s/[\r \t]\+$//
 augroup END
-
-" Javacomplete (too slow)
-"autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Autoformat style
 let g:formatdef_my_custom_cpp = '"astyle"'
@@ -128,7 +116,7 @@ let g:formatters_cpp = ['my_custom_cpp']"
 let g:formatters_java = ['my_custom_java']"
 let g:formatters_javascript = ['my_custom_javascript']"
 
-" Set some ignore patterns of directoies and files
+" Set some ignore patterns of directories and files
 set wildignore+=*/build/*,*.so,*.swp,*.zip
 set wildignore+=.git,.gitkeep
 set wildignore+=*DS_Store*
@@ -140,8 +128,8 @@ let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '\.swo', '\.sw
 let NERDTreeShowHidden=1
 let g:NERDTreeWinPos="left"
 let g:NERDTreeDirArrows=0
-let g:NERDTreeWinSize = 40
-map <Leader>ff :NERDTreeFind<cr>
+let g:NERDTreeWinSize = 45
+map <leader>ff :NERDTreeFind<cr>
 
 " === NETRW file explorer ===
 map  <F3>  :Explore<CR>
@@ -153,10 +141,7 @@ nmap <F2>  :YcmCompleter GoToDefinition<CR><CR>
 nmap <F12> :wa<CR>
 nmap <S-F12> :wq<CR>
 
-" set leader to space
-let mapleader=" "
-
-" open the current file in the webbrowser
+" Open the current file in the webbrowser
 map <leader>b :call RunGoogleChrome()<cr>
 
 nnoremap <leader>sp :call FixLastSpellingError()<cr>
@@ -239,24 +224,12 @@ let g:ale_pattern_options = {
 
 let g:ale_c_clangtidy_checks=["*", "-android*", "-google-readabi*", "-hicpp-*", "-*-braces-around-statements"]
 
-" Change VimWiki setting
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.wiki'}]
-
 function! FixLastSpellingError()
     normal! mm[s1z=`m
 endfunction
 
 " Make misspelled word underline
 hi SpellBad cterm=underline
-
-" VIM-Header settings
-let g:header_auto_add_header = 0
-let g:header_field_filename = 0
-let g:header_field_author = 'Robotic Eyes GmbH'
-let g:header_field_timestamp = 1
-let g:header_field_modified_timestamp = 0
-let g:header_field_timestamp_format = '%Y'
-let g:header_field_modified_by = 0
 
 " Additional surround settings
 " use b for double star
@@ -277,7 +250,7 @@ let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_cache_omnifunc=0
 "" complete syntax keywords
 let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_filetype_blacklist = { 'asciidoc': 1, 'mail': 1, 'vimwiki': 1, 'markdown': 1 }
+let g:ycm_filetype_blacklist = { 'asciidoc': 1, 'mail': 1, 'markdown': 1 }
 highlight YcmErrorLine guibg=#433D3D
 
 let g:powerline_pycmd = 'py3'
@@ -291,3 +264,112 @@ hi Comment ctermfg=4
 let vim_markdown_preview_browser='qutebrowser'
 let vim_markdown_preview_pandoc=1
 let vim_markdown_preview_use_xdg_open=1
+
+" Open corresponding .pdf/.html or preview
+map <leader>p :!opout <c-r>%<CR><CR>
+
+" Runs a script that cleans out tex build files whenever I close out of a .tex file.
+autocmd VimLeave *.tex !texclear %
+
+" Compile document, be it groff/LaTeX/markdown/etc.
+map <leader>c :w! \| !compiler <c-r>%<CR><CR>
+
+ "____        _                  _
+"/ ___| _ __ (_)_ __  _ __   ___| |_ ___
+"\___ \| '_ \| | '_ \| '_ \ / _ \ __/ __|
+ "___) | | | | | |_) | |_) |  __/ |_\__ \
+"|____/|_| |_|_| .__/| .__/ \___|\__|___/
+              "|_|   |_|
+
+"""LATEX
+	" Word count:
+	autocmd FileType tex map <leader><leader>o :w !detex \| wc -w<CR>
+	" Code snippets
+	autocmd FileType tex inoremap ,fr \begin{frame}<Enter>\frametitle{}<Enter><Enter><++><Enter><Enter>\end{frame}<Enter><Enter><++><Esc>6kf}i
+	autocmd FileType tex inoremap ,em \emph{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,bf \textbf{}<++><Esc>T{i
+	autocmd FileType tex vnoremap , <ESC>`<i\{<ESC>`>2la}<ESC>?\\{<Enter>a
+	autocmd FileType tex inoremap ,it \textit{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
+	autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
+	autocmd FileType tex inoremap ,li <Enter>\item<Space>
+	autocmd FileType tex inoremap ,ref \ref{}<Space><++><Esc>T{i
+	autocmd FileType tex inoremap ,tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter><++><Esc>4kA{}<Esc>i
+	autocmd FileType tex inoremap ,ot \begin{tableau}<Enter>\inp{<++>}<Tab>\const{<++>}<Tab><++><Enter><++><Enter>\end{tableau}<Enter><Enter><++><Esc>5kA{}<Esc>i
+	autocmd FileType tex inoremap ,sc \textsc{}<Space><++><Esc>T{i
+	autocmd FileType tex inoremap ,chap \chapter{}<Enter><Enter><++><Esc>2kf}i
+	autocmd FileType tex inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
+	autocmd FileType tex inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
+	autocmd FileType tex inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
+	autocmd FileType tex inoremap ,st <Esc>F{i*<Esc>f}i
+	autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
+	autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
+	autocmd FileType tex inoremap ,tt \texttt{}<Space><++><Esc>T{i
+	autocmd FileType tex inoremap ,col \begin{columns}[T]<Enter>\begin{column}{.5\textwidth}<Enter><Enter>\end{column}<Enter>\begin{column}{.5\textwidth}<Enter><++><Enter>\end{column}<Enter>\end{columns}<Esc>5kA
+	autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
+
+"""HTML
+	autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
+	autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
+	autocmd FileType html inoremap ,1 <h1></h1><Enter><Enter><++><Esc>2kf<i
+	autocmd FileType html inoremap ,2 <h2></h2><Enter><Enter><++><Esc>2kf<i
+	autocmd FileType html inoremap ,3 <h3></h3><Enter><Enter><++><Esc>2kf<i
+	autocmd FileType html inoremap ,p <p></p><Enter><Enter><++><Esc>02kf>a
+	autocmd FileType html inoremap ,a <a<Space>href=""><++></a><Space><++><Esc>14hi
+	autocmd FileType html inoremap ,e <a<Space>target="_blank"<Space>href=""><++></a><Space><++><Esc>14hi
+	autocmd FileType html inoremap ,ul <ul><Enter><li></li><Enter></ul><Enter><Enter><++><Esc>03kf<i
+	autocmd FileType html inoremap ,li <Esc>o<li></li><Esc>F>a
+	autocmd FileType html inoremap ,ol <ol><Enter><li></li><Enter></ol><Enter><Enter><++><Esc>03kf<i
+	autocmd FileType html inoremap ,im <img src="" alt="<++>"><++><esc>Fcf"a
+	autocmd FileType html inoremap ,td <td></td><++><Esc>Fdcit
+	autocmd FileType html inoremap ,tr <tr></tr><Enter><++><Esc>kf<i
+	autocmd FileType html inoremap ,th <th></th><++><Esc>Fhcit
+	autocmd FileType html inoremap ,tab <table><Enter></table><Esc>O
+	autocmd FileType html inoremap ,gr <font color="green"></font><Esc>F>a
+	autocmd FileType html inoremap ,rd <font color="red"></font><Esc>F>a
+	autocmd FileType html inoremap ,yl <font color="yellow"></font><Esc>F>a
+	autocmd FileType html inoremap ,dt <dt></dt><Enter><dd><++></dd><Enter><++><esc>2kcit
+	autocmd FileType html inoremap ,dl <dl><Enter><Enter></dl><enter><enter><++><esc>3kcc
+	autocmd FileType html inoremap &<space> &amp;<space>
+	autocmd FileType html inoremap á &aacute;
+	autocmd FileType html inoremap é &eacute;
+	autocmd FileType html inoremap í &iacute;
+	autocmd FileType html inoremap ó &oacute;
+	autocmd FileType html inoremap ú &uacute;
+	autocmd FileType html inoremap ä &auml;
+	autocmd FileType html inoremap ë &euml;
+	autocmd FileType html inoremap ï &iuml;
+	autocmd FileType html inoremap ö &ouml;
+	autocmd FileType html inoremap ü &uuml;
+	autocmd FileType html inoremap ã &atilde;
+	autocmd FileType html inoremap ẽ &etilde;
+	autocmd FileType html inoremap ĩ &itilde;
+	autocmd FileType html inoremap õ &otilde;
+	autocmd FileType html inoremap ũ &utilde;
+	autocmd FileType html inoremap ñ &ntilde;
+	autocmd FileType html inoremap à &agrave;
+	autocmd FileType html inoremap è &egrave;
+	autocmd FileType html inoremap ì &igrave;
+	autocmd FileType html inoremap ò &ograve;
+	autocmd FileType html inoremap ù &ugrave;
+
+"MARKDOWN
+	autocmd FileType markdown inoremap ,ae ä
+	autocmd FileType markdown inoremap ,oe ö
+	autocmd FileType markdown inoremap ,ue ü
+	autocmd Filetype markdown,rmd map <leader>w yiWi[<esc>Ea](<esc>pa)
+	autocmd Filetype markdown,rmd inoremap ,n ---<Enter><Enter>
+	autocmd Filetype markdown,rmd inoremap ,b ****<++><Esc>F*hi
+	autocmd Filetype markdown,rmd inoremap ,s ~~~~<++><Esc>F~hi
+	autocmd Filetype markdown,rmd inoremap ,e **<++><Esc>F*i
+	autocmd Filetype markdown,rmd inoremap ,h ====<Space><++><Esc>F=hi
+	autocmd Filetype markdown,rmd inoremap ,i ![](<++>)<++><Esc>F[a
+	autocmd Filetype markdown,rmd inoremap ,a [](<++>)<++><Esc>F[a
+	autocmd Filetype markdown,rmd inoremap ,1 #<Space><Enter><++><Esc>kA
+	autocmd Filetype markdown,rmd inoremap ,2 ##<Space><Enter><++><Esc>kA
+	autocmd Filetype markdown,rmd inoremap ,3 ###<Space><Enter><++><Esc>kA
+	autocmd Filetype markdown,rmd inoremap ,l --------<Enter>
+	autocmd Filetype rmd inoremap ,r ```{r}<CR>```<CR><CR><esc>2kO
+	autocmd Filetype rmd inoremap ,p ```{python}<CR>```<CR><CR><esc>2kO
+	autocmd Filetype rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
+
