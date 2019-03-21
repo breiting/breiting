@@ -1,0 +1,114 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/breiting/
+	..
+1546459848
+'b
+	/home/breiting/bin/
+	..
+1546459848
+'h
+	/home/breiting/
+	..
+1546459848
+'j
+	/home/breiting
+	Downloads
+1553169446
+'z
+	/home/breiting/.config/vifm
+	..
+1546459848
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/breiting
+	shots
+16
+d/home/breiting/shots
+	..
+0
+d/home/breiting
+	Downloads
+3
+d/home/breiting/Downloads
+	Terasse
+2
+d/home/breiting/Downloads/Terasse
+	Screen Shot 2019-01-01 at 17.15.44.JPG
+1
+d/home/breiting/Downloads
+	sciencepark
+7
+d/home/breiting/Downloads/sciencepark
+	48376489_10156566924436677_8674250392067899392_o.jpg
+5
+d/home/breiting/Downloads
+	sciencepark
+7
+d/home/breiting/Downloads/sciencepark
+	48373690_10156566922811677_1994711631216508928_o.jpg
+3
+d/home/breiting/Downloads
+	presi
+6
+d/home/breiting
+	GoldenNugget
+4
+d/home
+	breiting
+1
+d/home/breiting
+	REX_DEMO_DATASETS
+59
+d
+
+# Right window history (oldest to newest):
+D/home/breiting
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:feh *
+:execute feh
+:command feh *
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+""/home/breiting/.local/share/vifm/Trash/000_.IdeaIC2018.1
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+t/home/breiting/.local/share/vifm/Trash/000_.IdeaIC2018.1
+	/home/breiting/.IdeaIC2018.1
+
+# State:
+f
+i1
+[.0
+[F
+F
+I1
+].1
+]F
+s0
