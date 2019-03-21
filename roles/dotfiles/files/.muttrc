@@ -5,3 +5,17 @@ source $HOME/.mutt/config/commands.mutt
 source $HOME/.mutt/config/settings.mutt
 source $HOME/.mutt/config/hooks.mutt
 source $HOME/.mutt/config/mailboxes.mutt
+
+# automatically open evil HTML
+auto_view text/html
+set mime_forward="yes"
+set mime_forward_rest="yes"
+color quoted0   blue        default
+color quoted1   green       default
+color quoted2   red         default
+color quoted3   blue        default
+color quoted4   green       default
+color quoted5   red         default
+color quoted6   blue        default
+color signature green       default
+color tilde     cyan  default

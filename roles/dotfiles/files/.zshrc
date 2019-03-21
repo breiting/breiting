@@ -12,9 +12,6 @@ SAVEHIST=20000
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
-# Enable backward search
-bindkey '^R' history-incremental-search-backward
-
 # Enable completion
 autoload -U compinit
 compinit
@@ -80,13 +77,20 @@ export PATH="$PATH:$JAVA_HOME/bin"
 export PATH="$PATH:$QTDIR/bin"
 export PATH="$PATH:/Library/TeX/texbin"
 export PATH="$PATH:$HOME/workspace/br-utils"
-export PATH=$PATH:/opt/azure/bin
 export PATH=$PATH:/opt/idea-IC-181.4892.42/bin
 export PATH=$PATH:$GOPATH/bin
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # source '/opt/azure/az.completion'
 
+# Enable VIM mode
+bindkey -v
+
+# Enable backward search
+bindkey '^R' history-incremental-search-backward
+
 # Activate FZF fuzzy finder
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+
+

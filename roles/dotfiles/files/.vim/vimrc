@@ -42,6 +42,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/tComment'
 Plugin 'w0rp/ale'                                " Linter for Javascript
 Plugin 'wincent/command-t'                       " Alternative to Ctrlp
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 
@@ -273,6 +274,11 @@ autocmd VimLeave *.tex !texclear %
 
 " Compile document, be it groff/LaTeX/markdown/etc.
 map <leader>c :w! \| !compiler <c-r>%<CR><CR>
+map <leader>v :!zathura "%:r".pdf&<CR><CR>
+
+" Goyo settings
+let g:goyo_width=125
+let g:goyo_linenr=1
 
  "____        _                  _
 "/ ___| _ __ (_)_ __  _ __   ___| |_ ___

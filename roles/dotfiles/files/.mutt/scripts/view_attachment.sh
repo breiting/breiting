@@ -127,6 +127,10 @@ fi
 # If there's no 'open with' then we can let preview do it's thing.
 # Otherwise we've been told what to use.  So do an open -a.
 
+if [ $type = "pdf" ]; then
+    /usr/bin/zathura $newfile &
+    exit
+fi
 if [ -z $open_with ]; then
     xdg-open $newfile &
 else
