@@ -97,7 +97,7 @@ Channel reecon-folders-all
 Master :reecon-remote:
 Slave :reecon-local:
 Patterns "INBOX"
-Patterns "Archive" "Gesendete*" "!Junk*" "!Deleted*"
+Patterns "Archi*" "Sent*" "!Junk*" "!Deleted*"
 Create Both
 Expunge Both
 SyncState *
