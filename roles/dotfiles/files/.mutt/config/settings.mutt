@@ -4,6 +4,7 @@ set folder = "~/Maildir"
 set attribution = "%n wrote:\n"
 set alias_file = $HOME/.mutt/aliases.mutt
 set assumed_charset = "utf-8:iso-8859-1:us-ascii"
+set attach_charset = "us-ascii"
 set certificate_file = ~/.mutt/certificates
 set editor="vim +1 '+set tw=1000'"
 set envelope_from
