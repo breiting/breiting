@@ -17,6 +17,10 @@ alias feh='feh --scale-down --auto-zoom --auto-rotate'
 alias gogob='cd ~/workspace/go/src/github.com/breiting'
 alias gogor='cd ~/workspace/go/src/github.com/roboticeyes'
 
+alias lynx='lynx -vikeys'
+
+alias R='R --no-save'
+
 alias open='xdg-open'
 
 # Aliases for taskwarrior
@@ -37,13 +41,12 @@ alias gpf='git push -f'
 
 # Tmuxinator
 alias mm="tmuxinator start mail"
-alias nn="tmuxinator start notes"
 alias rex-cli="tmuxinator start rex-cli"
 alias rex-core-js="tmuxinator start rex-core-js"
 alias rex-hub="tmuxinator start rex-hub"
 alias rex-doc="tmuxinator start rex-doc"
 alias rex-ingest="tmuxinator start rex-ingest"
-alias fsa="tmuxinator start fsa"
+alias rex-socketcluster="cd ~/workspace/rex/rex-socketcluster"
 
 if [[ $platform == 'Darwin' ]]; then
     alias vi='/usr/local/bin/vim'
