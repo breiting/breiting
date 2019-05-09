@@ -470,6 +470,8 @@ $if(numbersections)$
 \setcounter{secnumdepth}{3}
 $endif$
 
+% Enable smart diagrams
+\usepackage{smartdiagram}
 %
 % line spacing
 %
@@ -517,6 +519,7 @@ $endif$
 %
 $if(mainfont)$
 $else$
+\usepackage[scale=0.75]{sourcecodepro} % breiting, make verbatim smaller by default
 \usepackage[default]{sourcesanspro}
 \usepackage{sourcecodepro}
 $endif$
@@ -587,7 +590,7 @@ $if(listings)$
   language         = java,
   numbers          = left,
   backgroundcolor  = \color{listing-background},
-  basicstyle       = \color{listing-text-color}\small\ttfamily{}\linespread{1.15}, % print whole listing small
+  basicstyle       = \color{listing-text-color}\normalsize\ttfamily{}\linespread{0.15}, % print whole listing small
   xleftmargin      = 2.7em,
   breaklines       = true,
   frame            = single,
