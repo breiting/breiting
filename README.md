@@ -14,12 +14,12 @@
 
 ## Highlights
 
-- 🧩 **CodeCAD**: **[CodeCAD](https://github.com/breiting/codecad)** — lightweight, code-first parametric CAD tool with Lua
+- 🧩 **[CodeCAD](https://github.com/breiting/codecad)** — lightweight, code-first parametric CAD tool with Lua
 - 🛒 **[ShopList](https://github.com/breiting/shoplist)** — Shared shopping list with a strong focus on simplicity and usability.
-- 🔄 **OntoFlow**: **[ontoflow](https://github.com/breiting/ontoflow)** — Ontological engine for computational emergence
-- 🌌 **Simulation engine**: **[cosma](https://github.com/breiting/cosma)** — C++ simulation engine for complex systems
-- ⚡ **CircuitSim**: **[circuitsim](https://github.com/breiting/circuitsim)** — Educational circuit simulator for teaching and experimentation
-- 🎛️ **[INDbox](https://github.com/breiting/indbox)** — Open-source physical computing interface for creative coding, generative design, and interactive media education
+- 🔄 **[OntoFlow](https://github.com/breiting/ontoflow)** — Ontological engine for computational emergence
+- 🌌 **[cosma](https://github.com/breiting/cosma)** — C++ simulation engine for complex systems
+- ⚡ **[CircuitSim](https://github.com/breiting/circuitsim)** — Educational circuit simulator for teaching and experimentation
+- 🎛️ **[INDbox](https://github.com/breiting/indbox)** — Physical computing interface for creative coding, generative design, and interactive media education
 
 ## Neovim and Writing
 
