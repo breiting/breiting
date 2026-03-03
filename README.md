@@ -1,6 +1,6 @@
 ## Hi, I'm Bernhard 👋
 
-📍 **Graz, Austria** | 🤖 **Entrepreneur**
+📍 **Graz, Austria** | 🔨 **Builder** | 🤖 **Entrepreneur**
 
 ![C++](https://img.shields.io/badge/-C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![CLI](https://img.shields.io/badge/-CLI-000000?style=flat-square&logo=gnu-bash&logoColor=white)
@@ -16,10 +16,10 @@
 
 - 🧩 **[CodeCAD](https://github.com/breiting/codecad)** — lightweight, code-first parametric CAD tool with Lua
 - 🛒 **[ShopList](https://github.com/breiting/shoplist)** — Shared shopping list with a strong focus on simplicity and usability.
-- 🔄 **[OntoFlow](https://github.com/breiting/ontoflow)** — Ontological engine for computational emergence
 - 🌌 **[cosma](https://github.com/breiting/cosma)** — C++ simulation engine for complex systems
 - ⚡ **[CircuitSim](https://github.com/breiting/circuitsim)** — Educational circuit simulator for teaching and experimentation
 - 🎛️ **[INDbox](https://github.com/breiting/indbox)** — Physical computing interface for creative coding, generative design, and interactive media education
+- 🔄 **[OntoFlow](https://github.com/breiting/ontoflow)** — Ontological engine for computational emergence
 
 ## Neovim and Writing
 
