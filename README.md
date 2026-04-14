@@ -14,6 +14,8 @@
 
 ## Highlights
 
+- 🎺 **[notipdf](https://github.com/breiting/notipdf)** - lightweight and simple way to crop PDFs for e-ink displays
+- 🧩 **[CodeCAD](https://github.com/breiting/codecad)** — lightweight, code-first parametric CAD tool with Lua
 - 🧩 **[CodeCAD](https://github.com/breiting/codecad)** — lightweight, code-first parametric CAD tool with Lua
 - 🛒 **[ShopList](https://github.com/breiting/shoplist)** — Shared shopping list with a strong focus on simplicity and usability.
 - 🌌 **[cosma](https://github.com/breiting/cosma)** — C++ simulation engine for complex systems
